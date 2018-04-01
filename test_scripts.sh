@@ -1,0 +1,13 @@
+#python libsvmformatter/corelationmapper.py data/ijcnn1/isesvm/ijcnn1_tr_csv-1 plot/ijcnn_r_coff_1.png plot/ijcnn_p_coff_1.png ijcnn_train data/ijcnn1/model_partition/
+#python libsvmformatter/partition.py data/ijcnn1/model_partition/ijcnn_train/negative/ijcnn_train_negative_cr_isesvm 40
+#python libsvmformatter/partition.py data/ijcnn1/model_partition/ijcnn_train/positive/ijcnn_train_positive_cr_isesvm 40
+#python libsvmformatter/libsvm2Isesvm.py data/ijcnn1/model_partition/ijcnn_train/negative/ijcnn_train_negative_cr_isesvm False
+#python libsvmformatter/libsvm2Isesvm.py data/ijcnn1/model_partition/ijcnn_train/negative/ijcnn_train_negative_cr_isesvm data/ijcnn1/model_partition/ijcnn_train/negative/ijcnn_train_negative_cr_isesvm False
+#python libsvmformatter/libsvm2Isesvm.py data/ijcnn1/model_partition/ijcnn_train/negative/ijcnn_train_negative_cr_isesvm data/ijcnn1/model_partition/ijcnn_train/positive/ijcnn_train_positive_cr_isesvm False
+#python libsvmformatter/corelationmapper.py data/ijcnn1/isesvm/ijcnn1_t_csv-1 plot/ijcnn_test_r_coff_1.png plot/ijcnn_test_p_coff_1.png ijcnn_test data/ijcnn1/model_partition/
+
+# IJCNN ISESVM CONVERSION
+python libsvmformatter/libsvm2Isesvm.py data/ijcnn1/model_partition/ijcnn_train/positive/ijcnn_train_positive_cr_isesvm data/ijcnn1/model_partition/ijcnn_train/positive/ijcnn_train_positive_cr_isesvm False
+python libsvmformatter/libsvm2Isesvm.py data/ijcnn1/model_partition/ijcnn_test/positive/ijcnn_test_positive_cr_isesvm data/ijcnn1/model_partition/ijcnn_test/positive/ijcnn_test_positive_cr_isesvm False
+python libsvmformatter/libsvm2Isesvm.py data/ijcnn1/model_partition/ijcnn_train/negative/ijcnn_train_negative_cr_isesvm data/ijcnn1/model_partition/ijcnn_train/negative/ijcnn_train_negative_cr_isesvm False
+python libsvmformatter/libsvm2Isesvm.py data/ijcnn1/model_partition/ijcnn_test/negative/ijcnn_test_negative_cr_isesvm data/ijcnn1/model_partition/ijcnn_test/negative/ijcnn_test_negative_cr_isesvm False

@@ -1,0 +1,20 @@
+partitions=$1
+python libsvmformatter/corelationmapper.py ~/data/libsvm/covtype/covtype_csv plot/covtype_r_coff_1.png plot/covtype_p_coff_1.png covtype data/model_partition/
+python libsvmformatter/libsvm2Isesvm.py data/model_partition/covtype/positive/covtype_positive_cr_isesvm data/model_partition/covtype/positive/covtype_positive_cr_isesvm True 0.6
+python libsvmformatter/libsvm2Isesvm.py data/model_partition/covtype/negative/covtype_negative_cr_isesvm data/model_partition/covtype/negative/covtype_negative_cr_isesvm True 0.6
+mv data/model_partition/covtype/positive/covtype_positive_cr_isesvm_test_x data/model_partition/covtype/positive/covtype_positive_cr_isesvm_test_x_bin
+mv data/model_partition/covtype/positive/covtype_positive_cr_isesvm_train_x data/model_partition/covtype/positive/covtype_positive_cr_isesvm_train_x_bin
+mv data/model_partition/covtype/negative/covtype_negative_cr_isesvm_train_x data/model_partition/covtype/negative/covtype_negative_cr_isesvm_train_x_bin
+mv data/model_partition/covtype/negative/covtype_negative_cr_isesvm_test_x data/model_partition/covtype/negative/covtype_negative_cr_isesvm_test_x_bin
+mv data/model_partition/covtype/negative/covtype_negative_cr_isesvm_test_y data/model_partition/covtype/negative/covtype_negative_cr_isesvm_test_y.bin
+mv data/model_partition/covtype/negative/covtype_negative_cr_isesvm_train_y data/model_partition/covtype/negative/covtype_negative_cr_isesvm_train_y.bin
+mv data/model_partition/covtype/positive/covtype_positive_cr_isesvm_train_y data/model_partition/covtype/positive/covtype_positive_cr_isesvm_train_y.bin
+mv data/model_partition/covtype/positive/covtype_positive_cr_isesvm_test_y data/model_partition/covtype/positive/covtype_positive_cr_isesvm_test_y.bin
+python libsvmformatter/partition.py data/model_partition/covtype/positive/covtype_positive_cr_isesvm_test_x_bin ${partitions}
+python libsvmformatter/partition.py data/model_partition/covtype/positive/covtype_positive_cr_isesvm_train_x_bin ${partitions}
+python libsvmformatter/partition.py data/model_partition/covtype/negative/covtype_negative_cr_isesvm_train_x_bin ${partitions}
+python libsvmformatter/partition.py data/model_partition/covtype/negative/covtype_negative_cr_isesvm_test_x_bin ${partitions}
+python libsvmformatter/partition.py data/model_partition/covtype/negative/covtype_negative_cr_isesvm_test_y.bin ${partitions}
+python libsvmformatter/partition.py data/model_partition/covtype/negative/covtype_negative_cr_isesvm_train_y.bin ${partitions}
+python libsvmformatter/partition.py data/model_partition/covtype/positive/covtype_positive_cr_isesvm_train_y.bin ${partitions}
+python libsvmformatter/partition.py data/model_partition/covtype/positive/covtype_positive_cr_isesvm_test_y.bin ${partitions}
